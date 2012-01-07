@@ -1,6 +1,9 @@
 ######################################################
 *** Bash Script for Quickly VPS Setup with Ubuntu ***
 
+* For now: Tested only in Ubuntu 11.10 32 bits Desktop version
+ - May be works on server edition too...
+
 # Created by: Rafael Biriba
 # http://www.rafaelbiriba.com
 
