@@ -2,11 +2,12 @@
 # "Automated VPS Setup for Ubuntu 11.10 - Rails with Nginx"
 #
 # Created by: Rafael Biriba - www.rafaelbiriba.com - biribarj@gmail.com
+# https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/
 #
 # USAGE:
 #
-# $ chmod +x vps.sh
-# $ ./vps.sh yourdomain.com"
+# $ chmod +x vps_builder.sh
+# $ ./vps_builder.sh yourdomain.com"
 
 echo "Set Hostname"
 echo "------------"
@@ -50,7 +51,7 @@ apt-get install libcurl4-openssl-dev -y
 passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx
 
 cd ~
-wget https://raw.github.com/gist/644217/a59effaaacf8ef2634743f744c532e704652e48c/nginx
+wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/nginx-init.sh
 cp nginx /etc/init.d/nginx
 rm nginx
 chmod +x /etc/init.d/nginx
