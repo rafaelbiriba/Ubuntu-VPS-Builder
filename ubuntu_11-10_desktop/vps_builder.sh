@@ -47,6 +47,12 @@ echo "Install Passenger and Nginx"
 echo "---------------------------"
 
 mkdir ~/tmp && cd ~/tmp
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.21.tar.gz
+tar xzvf pcre-8.21.tar.gz
+cd pcre-8.21
+./configure && make && make install
+cd ~/tmp
+
 wget http://nginx.org/download/nginx-1.1.12.tar.gz
 wget http://www.grid.net.ru/nginx/download/nginx_upload_module-2.2.0.tar.gz
 tar xzvf nginx-1.1.12.tar.gz
