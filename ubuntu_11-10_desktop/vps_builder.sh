@@ -141,6 +141,10 @@ apt-get install postfix mailutils telnet -y
 /usr/sbin/update-rc.d postfix defaults
 /etc/init.d/postfix start
 
+echo "Install gem bundler"
+echo "-------------------"
+
+gem install bundler
 
 echo "VPS Setup Complete"
 echo "------------------"
