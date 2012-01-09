@@ -68,8 +68,8 @@ rm -rf ~/tmp
 
 cd ~
 wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/nginx-init.sh
-cp nginx /etc/init.d/nginx
-rm nginx
+cp nginx-init.sh /etc/init.d/nginx
+rm nginx-init.sh
 chmod +x /etc/init.d/nginx
 /usr/sbin/update-rc.d -f nginx defaults
 /etc/init.d/nginx start
