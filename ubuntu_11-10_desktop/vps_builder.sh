@@ -99,7 +99,6 @@ iptables -A INPUT -p udp --dport 53 -j ACCEPT
 
 # HTTP e HTTPS:
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-iptables -A INPUT -p tcp --dport 7080 -j ACCEPT
 iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 
 # Block others ports
