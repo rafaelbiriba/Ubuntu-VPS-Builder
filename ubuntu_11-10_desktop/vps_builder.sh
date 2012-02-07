@@ -9,6 +9,10 @@
 # $ chmod +x vps_builder.sh
 # $ ./vps_builder.sh yourdomain.com"
 
+echo "Updating before all"
+echo "------------"
+apt-get update && apt-get upgrade -y
+
 echo "Set Hostname"
 echo "------------"
 
