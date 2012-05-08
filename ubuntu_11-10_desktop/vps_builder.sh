@@ -82,6 +82,8 @@ passenger-install-nginx-module --prefix=/opt/nginx --nginx-source-dir=/root/tmp/
 cd ~
 rm -rf ~/tmp
 
+#### Patch for 64 bits, ignored by 32 bits ####
+sudo ln -s /usr/local/lib/libpcre.so.1 /usr/lib/libpcre.so.1
 
 cd ~
 wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/nginx-init.sh
