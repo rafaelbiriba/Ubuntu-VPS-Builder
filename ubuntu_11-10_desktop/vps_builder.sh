@@ -37,9 +37,9 @@ echo "Install Ruby 1.9.2"
 echo "------------------"
 
 mkdir ~/tmp && cd ~/tmp
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.gz
-tar xzvf ruby-1.9.2-p290.tar.gz
-cd ruby-1.9.2-p290
+wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p125.tar.gz
+tar xzvf ruby-1.9.3-p125.tar.gz
+cd ruby-1.9.3-p125
 ./configure
 make
 make install
