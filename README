@@ -7,4 +7,9 @@
 # Created by: Rafael Biriba
 # http://www.rafaelbiriba.com
 
+# USAGE for Ubuntu 11.10 #
+$ wget https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/blob/master/ubuntu_11-10_desktop/vps_builder.sh
+$ chmod +x vps_builder.sh
+$ ./vps_builder.sh yourdomain.com
+
 Enjoy ;)
