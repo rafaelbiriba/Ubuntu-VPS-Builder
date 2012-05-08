@@ -84,45 +84,7 @@ echo "------------------"
 
 apt-get install iptables
 
-tee /etc/init.d/firewall <<ENDOFFILE
-#!/bin/bash
-
-start(){
-# Accepting all connections made on the special lo - loopback - 127.0.0.1 - interface
-iptables -A INPUT -p tcp -i lo -j ACCEPT
-
-# Rule which allows established tcp connections to stay up
-iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-
-# SSH:
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-
-# DNS:
-iptables -A INPUT -p tcp --dport 53 -j ACCEPT
-iptables -A INPUT -p udp --dport 53 -j ACCEPT
-
-# HTTP e HTTPS:
-iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-
-# Block others ports
-iptables -A INPUT -p tcp --syn -j DROP
-iptables -A INPUT -p udp --dport 0:1023 -j DROP
-
-}
-stop(){
-iptables -F
-iptables -P INPUT ACCEPT
-iptables -P OUTPUT ACCEPT
-}
-
-case "\$1" in
-"start") start ;;
-"stop") stop ;;
-"restart") stop; start ;;
-*) echo "start or stop params"
-esac
-ENDOFFILE
+wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/iptables-config -o /etc/init.d/firewall
 
 chmod +x /etc/init.d/firewall
 update-rc.d firewall defaults 99
