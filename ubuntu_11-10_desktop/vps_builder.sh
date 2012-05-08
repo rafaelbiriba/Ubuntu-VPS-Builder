@@ -33,14 +33,27 @@ echo "------------------"
 apt-get install build-essential zlib1g-dev libreadline6-dev libssl-dev wget git-core sudo -y
 
 
-echo "Install Ruby 1.9.2"
+echo "Install Essencials - yaml for ruby"
+echo "------------------"
+mkdir ~/tmp && cd ~/tmp
+wget http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz
+tar xzvf yaml-0.1.4.tar.gz
+cd yaml-0.1.4
+./configure --prefix=/usr/local
+make
+make install
+cd ~
+rm -rf ~/tmp
+
+
+echo "Install Ruby 1.9.3"
 echo "------------------"
 
 mkdir ~/tmp && cd ~/tmp
 wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p125.tar.gz
 tar xzvf ruby-1.9.3-p125.tar.gz
 cd ruby-1.9.3-p125
-./configure
+./configure --prefix=/usr/local --enable-shared --disable-install-doc --with-opt-dir=/usr/local/lib
 make
 make install
 cd ~
