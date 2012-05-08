@@ -52,8 +52,8 @@ echo "---------------------------"
 
 mkdir ~/tmp && cd ~/tmp
 wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.30.tar.gz
-tar xzvf pcre-8.21.tar.gz
-cd pcre-8.21
+tar xzvf pcre-8.30.tar.gz
+cd pcre-8.30
 ./configure && make && make install
 cd ~/tmp
 
