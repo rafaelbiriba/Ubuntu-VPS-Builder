@@ -50,9 +50,9 @@ echo "Install Ruby 1.9.3"
 echo "------------------"
 
 mkdir ~/tmp && cd ~/tmp
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p125.tar.gz
-tar xzvf ruby-1.9.3-p125.tar.gz
-cd ruby-1.9.3-p125
+wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.tar.gz
+tar xzvf ruby-1.9.3-p194.tar.gz
+cd ruby-1.9.3-p194
 ./configure --prefix=/usr/local --enable-shared --disable-install-doc --with-opt-dir=/usr/local/lib
 make
 make install
