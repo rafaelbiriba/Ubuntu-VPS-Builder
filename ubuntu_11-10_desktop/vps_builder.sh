@@ -99,7 +99,7 @@ echo "------------------"
 
 apt-get install iptables
 
-wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/iptables-config -o /etc/init.d/firewall
+wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/iptables-config -O /etc/init.d/firewall
 
 chmod +x /etc/init.d/firewall
 update-rc.d firewall defaults 99
