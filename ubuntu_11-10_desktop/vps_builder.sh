@@ -70,14 +70,14 @@ cd pcre-8.30
 ./configure && make && make install
 cd ~/tmp
 
-wget http://nginx.org/download/nginx-1.2.0.tar.gz
+wget http://nginx.org/download/nginx-1.3.0.tar.gz
 wget http://www.grid.net.ru/nginx/download/nginx_upload_module-2.2.0.tar.gz
-tar xzvf nginx-1.2.0.tar.gz
+tar xzvf nginx-1.3.0.tar.gz
 tar xzvf nginx_upload_module-2.2.0.tar.gz
 
 gem install passenger
 apt-get install libcurl4-openssl-dev -y
-passenger-install-nginx-module --prefix=/opt/nginx --nginx-source-dir=/root/tmp/nginx-1.2.0 --extra-configure-flags=--add-module='/root/tmp/nginx_upload_module-2.2.0'
+passenger-install-nginx-module --auto --prefix=/opt/nginx --nginx-source-dir=/root/tmp/nginx-1.3.0 --extra-configure-flags=--add-module='/root/tmp/nginx_upload_module-2.2.0'
 #passenger-install-nginx-module --auto --auto-download
 cd ~
 rm -rf ~/tmp
