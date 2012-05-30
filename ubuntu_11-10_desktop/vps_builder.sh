@@ -7,7 +7,7 @@
 # USAGE:
 #
 # $ chmod +x vps_builder.sh
-# $ ./vps_builder.sh yourdomain.com"
+# $ sudo ./vps_builder.sh yourdomain.com"
 
 echo "Updating before all"
 echo "------------"

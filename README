@@ -1,15 +1,23 @@
 ######################################################
 *** Bash Script for Quickly VPS Setup with Ubuntu ***
 
-* For now: Tested only in Ubuntu 11.10 32 bits Desktop version
- - May be works on server edition too...
+* For now - Tested in:
+- Ubuntu 11.10 32 bits and 64 bits version
+- Ubuntu 12.04 64 bits version
 
 # Created by: Rafael Biriba
 # http://www.rafaelbiriba.com
 
-# USAGE for Ubuntu 11.10 #
+# USAGE for Ubuntu 11.10 32 / 64bits #
 $ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/vps_builder.sh
 $ chmod +x vps_builder.sh
-$ ./vps_builder.sh yourdomain.com
+$ sudo ./vps_builder.sh yourdomain.com
+
+
+# USAGE for Ubuntu 12.04 64bits # ( yes, it is ubuntu_11-10_desktop in URL ;) )
+$ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/vps_builder.sh
+$ chmod +x vps_builder.sh
+$ sudo ./vps_builder.sh yourdomain.com
+
 
 Enjoy ;)
