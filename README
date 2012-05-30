@@ -14,7 +14,7 @@ $ chmod +x vps_builder.sh
 $ sudo ./vps_builder.sh yourdomain.com
 
 
-# USAGE for Ubuntu 12.04 64bits # ( yes, it is ubuntu_11-10_desktop in URL ;) )
+# USAGE for Ubuntu 12.04 32 / 64bits # yes, it's ubuntu_11-10_desktop in URL ;) 
 $ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/vps_builder.sh
 $ chmod +x vps_builder.sh
 $ sudo ./vps_builder.sh yourdomain.com
