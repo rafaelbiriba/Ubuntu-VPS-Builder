@@ -1,6 +1,8 @@
 ## Ubuntu VPS Builder
 Simple bash script to quickly build and setup a ubuntu server.
 
+** Feel free to add new recipes. Don't ferget the pull request to share it :) **
+
 ### For now - Recipes tested in:
 - [Recipe 1](#recipe-1)
   - Ubuntu 11.10 32 bits and 64 bits version
