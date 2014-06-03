@@ -64,7 +64,7 @@ echo "Install Passenger and Nginx"
 echo "---------------------------"
 
 mkdir ~/tmp && cd ~/tmp
-wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.30.tar.gz
+wget http://ftp.cs.stanford.edu/pub/exim/pcre/pcre-8.30.tar.gz
 tar xzvf pcre-8.30.tar.gz
 cd pcre-8.30
 ./configure && make && make install
@@ -75,7 +75,7 @@ wget http://www.grid.net.ru/nginx/download/nginx_upload_module-2.2.0.tar.gz
 tar xzvf nginx-1.3.0.tar.gz
 tar xzvf nginx_upload_module-2.2.0.tar.gz
 
-gem install passenger --no-rdoc --no-ri
+gem install passenger -v 3.0.21 --no-rdoc --no-ri
 apt-get install libcurl4-openssl-dev -y
 passenger-install-nginx-module --auto --prefix=/opt/nginx --nginx-source-dir=/root/tmp/nginx-1.3.0 --extra-configure-flags=--add-module='/root/tmp/nginx_upload_module-2.2.0'
 #passenger-install-nginx-module --auto --auto-download
