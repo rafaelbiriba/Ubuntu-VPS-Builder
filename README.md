@@ -9,7 +9,7 @@ Simple bash script to quickly build and setup a ubuntu server.
 - iptables (open ports 80, 22, 443)
 - ruby 1.9.3-p194
 - nginx 1.3.0 (with upload module)
-- passanger
+- passenger 3.0.21
 - mysql server
 
 #### Tested in:
