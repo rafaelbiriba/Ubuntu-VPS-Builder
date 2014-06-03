@@ -7,8 +7,6 @@ Simple bash script to quickly build and setup a ubuntu server.
 - [Recipe 1](#recipe-1)
   - Ubuntu 11.10 32 bits and 64 bits version
   - Ubuntu 12.04 32 bits and 64 bits version
-- [Recipe 2](#recipe-2)
-  - Ubuntu 14.04 64 bits version
 
 # Recipes available
 ## Recipe 1
