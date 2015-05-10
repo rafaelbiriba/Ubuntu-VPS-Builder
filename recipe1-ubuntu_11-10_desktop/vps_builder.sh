@@ -86,7 +86,7 @@ rm -rf ~/tmp
 sudo ln -s /usr/local/lib/libpcre.so.1 /usr/lib/libpcre.so.1
 
 cd ~
-wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/nginx-init.sh
+wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe1-ubuntu_11-10_desktop/nginx-init.sh
 cp nginx-init.sh /etc/init.d/nginx
 rm nginx-init.sh
 chmod +x /etc/init.d/nginx
@@ -99,7 +99,7 @@ echo "------------------"
 
 apt-get install iptables
 
-wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/iptables-config -O /etc/init.d/firewall
+wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe1-ubuntu_11-10_desktop/iptables-config -O /etc/init.d/firewall
 
 chmod +x /etc/init.d/firewall
 update-rc.d firewall defaults 99

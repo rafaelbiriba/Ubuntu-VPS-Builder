@@ -19,7 +19,7 @@ Simple bash script to quickly build and setup a ubuntu server.
 -  Ubuntu 14.04 64 bits version
 
 #### USAGE
-    $ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/ubuntu_11-10_desktop/vps_builder.sh
+    $ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe1-ubuntu_11-10_desktop/vps_builder.sh
     $ chmod +x vps_builder.sh
     $ sudo ./vps_builder.sh yourdomain.com
 
