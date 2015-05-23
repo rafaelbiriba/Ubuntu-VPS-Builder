@@ -88,14 +88,14 @@ if [ "$NGINX_ENABLED" = true ]; then
   /etc/init.d/nginx start
 
   cd ~
-  wget $RECIPE2URL/nginx-init.sh -O /etc/init.d/nginx
+  wget $RECIPEURL/nginx-init.sh -O /etc/init.d/nginx
   chmod +x /etc/init.d/nginx
   /usr/sbin/update-rc.d -f nginx defaults
 
   cd ~
-  wget $RECIPE2URL/nginx.conf -O /etc/nginx/conf/nginx.conf
+  wget $RECIPEURL/nginx.conf -O /etc/nginx/conf/nginx.conf
   mkdir /etc/nginx/sites-enabled
-  wget $RECIPE2URL/nginx-sitename -O /etc/nginx/sites-enabled/$DOMAIN
+  wget $RECIPEURL/nginx-sitename -O /etc/nginx/sites-enabled/$DOMAIN
 
   sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" /etc/nginx/sites-enabled/$DOMAIN
   sed -i -e "s/{{APP_PATH}}/$APP_PATH/g" /etc/nginx/sites-enabled/$DOMAIN
