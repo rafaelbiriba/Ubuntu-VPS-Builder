@@ -26,6 +26,6 @@ server {
 
   error_page 500 502 503 504 /500.html;
   location = /500.html {
-          root {{DOMAIN}}/current/public;
+          root {{APP_PATH}}/current/public;
   }
 }
