@@ -74,7 +74,7 @@ if [ "$NGINX_ENABLED" = true ]; then
   wget http://nginx.org/download/$NGINX.tar.gz
   tar xzvf $NGINX.tar.gz
   cd $NGINX
-  ./configure --prefix=/opt/nginx && make && make install
+  ./configure --prefix=/etc/nginx && make && make install
   cd ~
   rm -rf ~/tmp
 
