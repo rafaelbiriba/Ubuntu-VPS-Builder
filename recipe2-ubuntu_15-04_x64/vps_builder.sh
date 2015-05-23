@@ -12,7 +12,7 @@
 ########################################
 ############### CONFIGS ################
 DOMAIN=$1
-APP_PATH=$2
+APP_PATH=${2%/}
 TIMEZONE="America/Sao_Paulo"
 
 RUBY_ENABLED=true
