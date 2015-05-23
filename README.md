@@ -1,7 +1,7 @@
 ## Ubuntu VPS Builder
 Simple bash script to quickly build and setup a ubuntu server.
 
-** Feel free to add new recipes. Don't ferget the pull request to share it :) **
+** Feel free to add new recipes. Don't forget the pull request to share it :) **
 
 # Recipes available
 ## Recipe 1
