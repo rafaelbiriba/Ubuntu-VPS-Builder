@@ -36,7 +36,7 @@ You can customize your package version in config vars at vps_builder file.
 - Ubuntu 15.04 64 bits
 
 #### USAGE
-    $ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe1-ubuntu_11-10_desktop/vps_builder.sh
+    $ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2-ubuntu_15-04_x64/vps_builder.sh
     $ chmod +x vps_builder.sh
     # (Change vps_builder variables at the beggining of file if you want before run)
     $ sudo ./vps_builder.sh yourdomain.com /app/path
