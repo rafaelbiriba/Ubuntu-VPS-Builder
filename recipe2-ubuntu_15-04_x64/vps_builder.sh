@@ -98,7 +98,7 @@ if [ "$NGINX_ENABLED" = true ]; then
   wget $RECIPEURL/nginx-sitename -O /etc/nginx/sites-enabled/$DOMAIN
 
   sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" /etc/nginx/sites-enabled/$DOMAIN
-  sed -i -e "s/{{APP_PATH}}/$APP_PATH/g" /etc/nginx/sites-enabled/$DOMAIN
+  sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" /etc/nginx/sites-enabled/$DOMAIN
 fi
 
 if [ "$IPTABLES" = true ]; then
