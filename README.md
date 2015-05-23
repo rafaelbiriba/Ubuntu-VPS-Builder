@@ -23,4 +23,22 @@ Simple bash script to quickly build and setup a ubuntu server.
     $ chmod +x vps_builder.sh
     $ sudo ./vps_builder.sh yourdomain.com
 
+## Recipe 2
+- ruby 2
+- nginx 1.9
+- unicorn and nginx configs
+- iptables
+
+You can customize your package version in config vars at vps_builder file.
+
+#### Tested in:
+
+- Ubuntu 15.04 64 bits
+
+#### USAGE
+    $ wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe1-ubuntu_11-10_desktop/vps_builder.sh
+    $ chmod +x vps_builder.sh
+    # (Change vps_builder variables at the beggining of file if you want before run)
+    $ sudo ./vps_builder.sh yourdomain.com /app/path
+
 ### Enjoy ;) Don't forget to give a *star* in github :)

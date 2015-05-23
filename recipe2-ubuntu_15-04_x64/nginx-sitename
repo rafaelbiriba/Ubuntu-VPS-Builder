@@ -1,0 +1,31 @@
+# The socket here must match the socket path that you set up in unicorn.rb.
+upstream app {
+  server unix:{{APP_PATH}}/shared/sockets/unicorn.sock fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name {{DOMAIN}} www.{{DOMAIN}};
+
+  keepalive_timeout 300;
+
+  client_max_body_size 4G;
+
+  root {{DOMAIN}}/current/public;
+
+  try_files $uri/index.html $uri.html $uri @unicorn;
+
+  location @unicorn {
+          proxy_set_header X-Forwarded-For $remote_addr;
+          proxy_set_header Host $http_host;
+          proxy_redirect off;
+          proxy_pass http://app;
+          proxy_read_timeout 300s;
+          proxy_send_timeout 300s;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+          root {{DOMAIN}}/current/public;
+  }
+}
