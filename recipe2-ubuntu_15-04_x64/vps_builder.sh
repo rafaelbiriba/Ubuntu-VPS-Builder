@@ -16,6 +16,7 @@ APP_PATH=${2%/}
 TIMEZONE="America/Sao_Paulo"
 
 RUBY_ENABLED=true
+BUNDLER_ENABLED=true
 RUBY="ruby-2.0.0-p353" # Check correct version in http://ftp.ruby-lang.org/pub/ruby/2.0/
 
 NGINX_ENABLED=true
@@ -42,7 +43,7 @@ ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 
 echo "Install Essencials"
 echo "------------------"
-apt-get install build-essential git-core -y
+apt-get install build-essential git-core libcurl4-openssl-dev zlib1g-dev libssl-dev -y
 
 if [ "$RUBY_ENABLED" = true ]; then
   echo "Install Ruby $RUBY"
@@ -58,6 +59,12 @@ if [ "$RUBY_ENABLED" = true ]; then
   rm -rf ~/tmp
 fi
 
+if [ "$BUNDLER_ENABLED" = true ]; then
+  echo "Install gem bundler"
+  echo "------------------"
+  gem install bundler
+fi
+
 if [ "$NGINX_ENABLED" = true ]; then
   echo "Install Nginx"
   echo "---------------------------"
@@ -68,8 +75,6 @@ if [ "$NGINX_ENABLED" = true ]; then
   cd pcre-8.37
   ./configure && make && make install
   cd ~/tmp
-
-  apt-get install libcurl4-openssl-dev zlib1g-dev -y
 
   wget http://nginx.org/download/$NGINX.tar.gz
   tar xzvf $NGINX.tar.gz
