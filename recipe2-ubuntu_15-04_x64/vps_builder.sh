@@ -22,7 +22,7 @@ RUBY="ruby-2.0.0-p353" # Check correct version in http://ftp.ruby-lang.org/pub/r
 NGINX_ENABLED=true
 NGINX="nginx-1.9.0" # Check correct version in http://nginx.org/download/
 
-IPTABLES=true
+IPTABLES_ENABLED=true
 #######################################################
 ###################### Don't touch below ##############
 RECIPEURL="https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2-ubuntu_15-04_x64"
@@ -106,7 +106,7 @@ if [ "$NGINX_ENABLED" = true ]; then
   sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" /etc/nginx/sites-enabled/$DOMAIN
 fi
 
-if [ "$IPTABLES" = true ]; then
+if [ "$IPTABLES_ENABLED" = true ]; then
   echo "Configure iptables"
   echo "------------------"
   apt-get install iptables -y
