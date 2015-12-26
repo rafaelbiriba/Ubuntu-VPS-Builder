@@ -11,7 +11,7 @@ server {
 
   client_max_body_size 4G;
 
-  root {{DOMAIN}}/current/public;
+  root {{APP_PATH}}/current/public;
 
   try_files $uri/index.html $uri.html $uri @unicorn;
 
