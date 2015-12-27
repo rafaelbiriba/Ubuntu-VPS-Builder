@@ -23,6 +23,8 @@ NGINX_ENABLED=true
 NGINX="nginx-1.9.0" # Check correct version in http://nginx.org/download/
 
 IPTABLES_ENABLED=true
+
+MYSQL_SERVER_ENABLED=true
 #######################################################
 ###################### Don't touch below ##############
 RECIPEURL="https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2-ubuntu_15-04_x64"
@@ -116,4 +118,11 @@ if [ "$IPTABLES_ENABLED" = true ]; then
   chmod +x /etc/init.d/firewall
   update-rc.d firewall defaults 99
   /etc/init.d/firewall start
+fi
+
+if [ "$MYSQL_SERVER_ENABLED" = true ]; then
+  echo "Install MySQL"
+  echo "-------------"
+
+  apt-get install mysql-server mysql-client libmysqlclient-dev -y
 fi
