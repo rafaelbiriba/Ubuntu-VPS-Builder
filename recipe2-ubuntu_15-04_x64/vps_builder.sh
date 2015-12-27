@@ -111,10 +111,14 @@ fi
 
 if [ "$UNICORN_ENABLED" = true ]; then
   gem install unicorn
-  wget $RECIPEURL/unicorn-sitename-init -O /etc/init.d/unicorn-$DOMAIN
 
-  sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" /etc/init.d/unicorn-$DOMAIN
-  sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" /etc/init.d/unicorn-$DOMAIN
+  INIT_FILE="/etc/init.d/unicorn-$DOMAIN"
+
+  wget $RECIPEURL/unicorn-sitename-init -O $INIT_FILE
+
+  sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" $INIT_FILE
+  sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" $INIT_FILE
+  chmod +x $INIT_FILE
 fi
 
 if [ "$IPTABLES_ENABLED" = true ]; then

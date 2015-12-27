@@ -15,7 +15,6 @@ set -e
 USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
 
 # app settings
-USER=`whoami`
 APP_ROOT={{APP_PATH}}
 DOMAIN={{DOMAIN}}
 ENV="production"
@@ -40,7 +39,7 @@ case $1 in
   start)
     sig 0 && echo >&2 "Already running" && exit 0
     echo "Starting unicorn for $DOMAIN."
-    su - $USER -c "$CMD"
+    $CMD
     ;;
   stop)
     echo "Stopping unicorn for $DOMAIN."
