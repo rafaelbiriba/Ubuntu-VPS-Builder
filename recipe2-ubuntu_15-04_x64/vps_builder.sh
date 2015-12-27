@@ -21,6 +21,7 @@ RUBY="ruby-2.0.0-p353" # Check correct version in http://ftp.ruby-lang.org/pub/r
 
 NGINX_ENABLED=true
 NGINX="nginx-1.9.0" # Check correct version in http://nginx.org/download/
+UNICORN_ENABLED=true
 
 IPTABLES_ENABLED=true
 
@@ -106,6 +107,14 @@ if [ "$NGINX_ENABLED" = true ]; then
 
   sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" /etc/nginx/sites-enabled/$DOMAIN
   sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" /etc/nginx/sites-enabled/$DOMAIN
+fi
+
+if [ "$UNICORN_ENABLED" = true ]; then
+  gem install unicorn
+  wget $RECIPEURL/unicorn-sitename-init -O /etc/init.d/unicorn-$DOMAIN
+
+  sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" /etc/init.d/unicorn-$DOMAIN
+  sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" /etc/init.d/unicorn-$DOMAIN
 fi
 
 if [ "$IPTABLES_ENABLED" = true ]; then
