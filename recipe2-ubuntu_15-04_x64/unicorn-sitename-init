@@ -39,7 +39,7 @@ case $1 in
   start)
     sig 0 && echo >&2 "Already running" && exit 0
     echo "Starting unicorn for $DOMAIN."
-    $CMD
+    /bin/sh -c "$CMD"
     ;;
   stop)
     echo "Stopping unicorn for $DOMAIN."
@@ -54,7 +54,7 @@ case $1 in
   restart|reload|upgrade)
     sig USR2 && echo "reloaded unicorn for $DOMAIN" && exit 0
     echo >&2 "Couldn't reload, starting '$CMD' instead"
-    $CMD
+    /bin/sh -c "$CMD"
     ;;
   rotate)
     sig USR1 && echo rotated logs OK && exit 0
