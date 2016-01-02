@@ -86,6 +86,8 @@ if [ "$NGINX_ENABLED" = true ]; then
   cd ~
   rm -rf ~/tmp
 
+  mkdir -p /var/log/nginx/
+
   #### Patch for 64 bits, ignored by 32 bits ####
   sudo ln -s /usr/local/lib/libpcre.so.1 /usr/lib/libpcre.so.1
 
