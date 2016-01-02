@@ -121,6 +121,7 @@ if [ "$UNICORN_ENABLED" = true ]; then
   sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" $INIT_FILE
   sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" $INIT_FILE
   chmod +x $INIT_FILE
+  /usr/sbin/update-rc.d -f $INIT_FILE defaults
 fi
 
 if [ "$IPTABLES_ENABLED" = true ]; then
