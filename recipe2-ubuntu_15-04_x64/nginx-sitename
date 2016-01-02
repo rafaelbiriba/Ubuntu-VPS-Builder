@@ -1,6 +1,6 @@
 # The socket here must match the socket path that you set up in unicorn.rb.
 upstream app {
-  server unix:{{APP_PATH}}/shared/sockets/unicorn.sock fail_timeout=0;
+  server unix:{{APP_PATH}}/shared/pids/unicorn.sock fail_timeout=0;
 }
 
 server {
