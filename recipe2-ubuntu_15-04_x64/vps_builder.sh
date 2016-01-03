@@ -112,11 +112,6 @@ if [ "$NGINX_ENABLED" = true ]; then
   /etc/init.d/nginx start
 
   cd ~
-  wget $RECIPEURL/nginx-init.sh -O /etc/init.d/nginx
-  chmod +x /etc/init.d/nginx
-  /usr/sbin/update-rc.d -f nginx defaults
-
-  cd ~
   wget $RECIPEURL/nginx.conf -O /etc/nginx/conf/nginx.conf
   mkdir /etc/nginx/sites-enabled
   wget $RECIPEURL/nginx-sitename -O /etc/nginx/sites-enabled/$DOMAIN
