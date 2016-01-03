@@ -26,8 +26,16 @@ UNICORN_ENABLED=true
 IPTABLES_ENABLED=true
 
 MYSQL_SERVER_ENABLED=true
+MYSQL_ROOT_PASSWORD="password" # Change here !!
+
+MYSQL_CREATE_APP_ENV=false
+MYSQL_APP_USER="user" # Change here !!
+MYSQL_APP_PASSWORD="password" # Change here !!
+MYSQL_APP_DATABASE="db" # Change here !!
+
 #######################################################
 ###################### Don't touch below ##############
+
 RECIPEURL="https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2-ubuntu_15-04_x64"
 
 echo "Updating before all"
@@ -140,5 +148,15 @@ if [ "$MYSQL_SERVER_ENABLED" = true ]; then
   echo "Install MySQL"
   echo "-------------"
 
+  debconf-set-selections <<< "mysql-server mysql-server/root_password password $MYSQL_ROOT_PASSWORD"
+  debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PASSWORD"
+
   apt-get install mysql-server mysql-client libmysqlclient-dev -y
+
+  if [ "$MYSQL_CREATE_APP_ENV" = true ]; then
+    SQL_COMMAND="mysql -uroot -p$MYSQL_ROOT_PASSWORD -e "
+    eval $SQL_COMMAND "\"CREATE DATABASE $MYSQL_APP_DATABASE;\""
+    eval $SQL_COMMAND "\"CREATE USER '$MYSQL_APP_USER'@'localhost' IDENTIFIED BY '$MYSQL_APP_PASSWORD';\""
+    eval $SQL_COMMAND "\"GRANT ALL PRIVILEGES ON $MYSQL_APP_DATABASE . * TO '$MYSQL_APP_USER'@'localhost';\""
+  fi
 fi
