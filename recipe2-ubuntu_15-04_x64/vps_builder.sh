@@ -123,14 +123,15 @@ fi
 if [ "$UNICORN_ENABLED" = true ]; then
   gem install unicorn
 
-  INIT_FILE="/etc/init.d/unicorn-$DOMAIN"
+  INIT_FILENAME="unicorn-$DOMAIN"
+  INIT_FILEPATH="/etc/init.d/$INIT_FILENAME"
 
-  wget $RECIPEURL/unicorn-sitename-init -O $INIT_FILE
+  wget $RECIPEURL/unicorn-sitename-init -O $INIT_FILEPATH
 
-  sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" $INIT_FILE
-  sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" $INIT_FILE
-  chmod +x $INIT_FILE
-  /usr/sbin/update-rc.d -f $INIT_FILE defaults
+  sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" $INIT_FILEPATH
+  sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" $INIT_FILEPATH
+  chmod +x $INIT_FILEPATH
+  /usr/sbin/update-rc.d -f $INIT_FILENAME defaults
 fi
 
 if [ "$IPTABLES_ENABLED" = true ]; then
