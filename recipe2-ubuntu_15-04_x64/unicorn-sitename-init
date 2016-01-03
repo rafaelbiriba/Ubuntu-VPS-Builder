@@ -10,6 +10,8 @@
 # Description:       starts unicorn using start-stop-daemon
 ### END INIT INFO
 
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+
 set -e
 
 USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
