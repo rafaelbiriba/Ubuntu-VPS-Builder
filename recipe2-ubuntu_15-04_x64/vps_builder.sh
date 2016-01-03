@@ -4,10 +4,10 @@
 # Created by: Rafael Biriba - www.rafaelbiriba.com - biribarj@gmail.com
 # https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/
 #
-# USAGE: (Change vps_builder variables at the beggining of file if you want)
-#
-# $ chmod +x vps_builder.sh
-# $ sudo ./vps_builder.sh yourdomain.com /app/path"
+SCRIPT_USAGE="
+USAGE: (Change vps_builder variables at the beggining of file if you want)\n
+$ chmod +x vps_builder.sh\n
+$ sudo ./vps_builder.sh yourdomain.com /app/path"
 
 ########################################
 ############### CONFIGS ################
@@ -35,10 +35,18 @@ MYSQL_APP_DATABASE="db" # Change here !!
 
 #######################################################
 ###################### Don't touch below ##############
+echo -e "\n"
+
+if [ -z "$1" ] || [ -z "$2" ] ; then
+  echo -e "Missing init arguments! \n"
+  echo -e $SCRIPT_USAGE
+  exit 1
+fi
 
 # Make sure only root can run our script
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root (sudo ?)" 1>&2
+   echo -e "This script must be run as root \n"
+   echo -e $SCRIPT_USAGE
    exit 1
 fi
 
