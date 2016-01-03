@@ -36,6 +36,12 @@ MYSQL_APP_DATABASE="db" # Change here !!
 #######################################################
 ###################### Don't touch below ##############
 
+# Make sure only root can run our script
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root (sudo ?)" 1>&2
+   exit 1
+fi
+
 RECIPEURL="https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2-ubuntu_15-04_x64"
 
 echo "Updating before all"
