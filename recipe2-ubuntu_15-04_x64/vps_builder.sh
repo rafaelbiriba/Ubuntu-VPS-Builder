@@ -5,14 +5,14 @@
 # https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/
 #
 SCRIPT_USAGE="
-USAGE: (Change vps_builder variables at the beggining of file if you want)\n
+USAGE: (You must change vps_builder variables at the beggining of file if you want)\n
 $ chmod +x vps_builder.sh\n
-$ sudo ./vps_builder.sh yourdomain.com /app/path"
+$ sudo ./vps_builder.sh"
 
 ########################################
 ############### CONFIGS ################
-DOMAIN=$1
-APP_PATH=${2%/}
+DOMAIN="mywebsite.com"
+APP_PATH="/home/user"
 TIMEZONE="America/Sao_Paulo"
 
 RUBY_ENABLED=true
