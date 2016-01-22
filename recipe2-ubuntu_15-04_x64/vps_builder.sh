@@ -37,12 +37,6 @@ MYSQL_APP_DATABASE="db" # Change here !!
 ###################### Don't touch below ##############
 echo -e "\n"
 
-if [ -z "$1" ] || [ -z "$2" ] ; then
-  echo -e "Missing init arguments! \n"
-  echo -e $SCRIPT_USAGE
-  exit 1
-fi
-
 # Make sure only root can run our script
 if [[ $EUID -ne 0 ]]; then
    echo -e "This script must be run as root \n"
