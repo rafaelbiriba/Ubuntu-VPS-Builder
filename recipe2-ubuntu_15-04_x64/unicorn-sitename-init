@@ -10,8 +10,6 @@
 # Description:       starts unicorn using start-stop-daemon
 ### END INIT INFO
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
-
 set -e
 
 USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
@@ -19,10 +17,13 @@ USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
 # app settings
 APP_ROOT={{APP_PATH}}
 DOMAIN={{DOMAIN}}
+USER={{USER}}
 ENV="production"
 
 # environment settings
-CMD="cd $APP_ROOT/current && bundle exec unicorn -c config/unicorn.rb -E $ENV -D"
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+PATH="/home/$USER/.rbenv/shims:/home/$USER/.rbenv/bin:$PATH"
+CMD="cd $APP_ROOT && bundle exec unicorn -c config/unicorn.rb -E $ENV -D"
 PID="$APP_ROOT/shared/pids/unicorn.pid"
 OLD_PID="$PID.oldbin"
 
@@ -40,23 +41,23 @@ oldsig () {
 case $1 in
   start)
     sig 0 && echo >&2 "Already running" && exit 0
-    echo "Starting unicorn for $DOMAIN."
-    /bin/sh -c "$CMD"
+    echo "Starting $APP_ROOT"
+    su - $USER -c "$CMD"
     ;;
   stop)
-    echo "Stopping unicorn for $DOMAIN."
+    echo "Stopping $APP_ROOT"
     sig QUIT && exit 0
     echo >&2 "Not running"
     ;;
   force-stop)
-    echo "Force stopping unicorn for $DOMAIN."
+    echo "Force stopping $APP_ROOT"
     sig TERM && exit 0
     echo >&2 "Not running"
     ;;
   restart|reload|upgrade)
-    sig USR2 && echo "reloaded unicorn for $DOMAIN" && exit 0
+    sig USR2 && echo "reloaded $APP_ROOT" && exit 0
     echo >&2 "Couldn't reload, starting '$CMD' instead"
-    /bin/sh -c "$CMD"
+    $CMD
     ;;
   rotate)
     sig USR1 && echo rotated logs OK && exit 0

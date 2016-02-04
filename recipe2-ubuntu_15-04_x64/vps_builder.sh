@@ -11,8 +11,13 @@ $ sudo ./vps_builder.sh"
 
 ########################################
 ############### CONFIGS ################
+#======================================#
+##### YOU MUST CHANGE THIS VALUES ######
+
 DOMAIN="mywebsite.com"
 APP_PATH="/home/user"
+APP_LOCAL_USER="ubuntu" #User to run the application - 'root' not recommended
+
 TIMEZONE="America/Sao_Paulo"
 
 RUBY_ENABLED=true
@@ -33,8 +38,10 @@ MYSQL_APP_USER="user" # Change here !!
 MYSQL_APP_PASSWORD="password" # Change here !!
 MYSQL_APP_DATABASE="db" # Change here !!
 
-#######################################################
-###################### Don't touch below ##############
+
+#################################################
+###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!###
+################ Don't touch below ##############
 echo -e "\n"
 
 # Make sure only root can run our script
@@ -131,6 +138,7 @@ if [ "$UNICORN_ENABLED" = true ]; then
   wget $RECIPEURL/unicorn-sitename-init -O $INIT_FILEPATH
 
   sed -i -e "s/{{DOMAIN}}/$DOMAIN/g" $INIT_FILEPATH
+  sed -i -e "s/{{USER}}/$APP_LOCAL_USER/g" $INIT_FILEPATH
   sed -i -e "s/{{APP_PATH}}/$(echo $APP_PATH | sed -e 's/\//\\\//g')/g" $INIT_FILEPATH
   chmod +x $INIT_FILEPATH
   /usr/sbin/update-rc.d -f $INIT_FILENAME defaults
