@@ -15,7 +15,7 @@ set -e
 USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
 
 # app settings
-APP_ROOT={{APP_PATH}}
+APP_ROOT={{APP_PATH}}/current
 DOMAIN={{DOMAIN}}
 USER={{USER}}
 ENV="production"
@@ -41,21 +41,21 @@ oldsig () {
 case $1 in
   start)
     sig 0 && echo >&2 "Already running" && exit 0
-    echo "Starting $APP_ROOT"
+    echo "Starting $DOMAIN"
     su - $USER -c "$CMD"
     ;;
   stop)
-    echo "Stopping $APP_ROOT"
+    echo "Stopping $DOMAIN"
     sig QUIT && exit 0
     echo >&2 "Not running"
     ;;
   force-stop)
-    echo "Force stopping $APP_ROOT"
+    echo "Force stopping $DOMAIN"
     sig TERM && exit 0
     echo >&2 "Not running"
     ;;
   restart|reload|upgrade)
-    sig USR2 && echo "reloaded $APP_ROOT" && exit 0
+    sig USR2 && echo "reloaded $DOMAIN" && exit 0
     echo >&2 "Couldn't reload, starting '$CMD' instead"
     $CMD
     ;;
