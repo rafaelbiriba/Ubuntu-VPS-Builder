@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          unicorn
+# Provides:          unicorn-{{DOMAIN}}
 # Required-Start:    $all
 # Required-Stop:     $all
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: starts the unicorn app server
+# Short-Description: starts the unicorn for {{DOMAIN}} app server
 # Description:       starts unicorn using start-stop-daemon
 ### END INIT INFO
 
