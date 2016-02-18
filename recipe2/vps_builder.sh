@@ -1,5 +1,5 @@
 #!/bin/bash
-# "Automated VPS Setup for Ubuntu 15.04 X64 - Rails with Nginx"
+# "Automated VPS Setup for Ubuntu - Rails with Nginx"
 #
 # Created by: Rafael Biriba - www.rafaelbiriba.com - biribarj@gmail.com
 # https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/
@@ -51,7 +51,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-RECIPEURL="https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2-ubuntu_15-04_x64"
+RECIPEURL="https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2"
 
 echo "Updating before all"
 echo "------------"

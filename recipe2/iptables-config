@@ -9,6 +9,8 @@
 # Description:       Custom Firewall
 ### END INIT INFO
 
+# "Automated VPS Setup for Ubuntu - Rails with Nginx"
+# https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/
 
 start(){
 # Accepting all connections made on the special lo - loopback - 127.0.0.1 - interface

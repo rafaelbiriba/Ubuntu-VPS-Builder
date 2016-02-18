@@ -10,6 +10,9 @@
 # Description:       starts unicorn using start-stop-daemon
 ### END INIT INFO
 
+# "Automated VPS Setup for Ubuntu - Rails with Nginx"
+# https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/
+
 set -e
 
 USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"

@@ -26,7 +26,7 @@ You can customize your package version in config vars at vps_builder file.
 #### USAGE
   Don't forget to create your application user and app path before run the script.
 
-    wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2-ubuntu_15-04_x64/vps_builder.sh
+    wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe2/vps_builder.sh
     chmod +x vps_builder.sh
     # (You must change vps_builder variables at the beggining of file if you want before run)
     sudo ./vps_builder.sh
@@ -46,7 +46,7 @@ You can customize your package version in config vars at vps_builder file.
 - Ubuntu 14.04 64 bits version
 
 #### USAGE
-    wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe1-ubuntu_11-10_desktop/vps_builder.sh
+    wget https://raw.github.com/rafaelbiriba/Ubuntu-VPS-Builder/master/recipe1/vps_builder.sh
     chmod +x vps_builder.sh
     sudo ./vps_builder.sh yourdomain.com
 

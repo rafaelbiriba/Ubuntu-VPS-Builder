@@ -12,8 +12,11 @@
 # Description:       starts nginx using start-stop-daemon
 ### END INIT INFO
 
-PATH=/etc/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/etc/nginx/sbin/nginx
+# "Automated VPS Setup for Ubuntu - Rails with Nginx"
+# https://github.com/rafaelbiriba/Ubuntu-VPS-Builder/
+
+PATH=/opt/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/opt/nginx/sbin/nginx
 NAME=nginx
 DESC=nginx
 
@@ -29,28 +32,28 @@ set -e
 case "$1" in
   start)
         echo -n "Starting $DESC: "
-        start-stop-daemon --start --quiet --pidfile /etc/nginx/logs/$NAME.pid \
+        start-stop-daemon --start --quiet --pidfile /opt/nginx/logs/$NAME.pid \
                 --exec $DAEMON -- $DAEMON_OPTS
         echo "$NAME."
         ;;
   stop)
         echo -n "Stopping $DESC: "
-        start-stop-daemon --stop --quiet --pidfile /etc/nginx/logs/$NAME.pid \
+        start-stop-daemon --stop --quiet --pidfile /opt/nginx/logs/$NAME.pid \
                 --exec $DAEMON
         echo "$NAME."
         ;;
   restart|force-reload)
         echo -n "Restarting $DESC: "
         start-stop-daemon --stop --quiet --pidfile \
-                /etc/nginx/logs/$NAME.pid --exec $DAEMON
+                /opt/nginx/logs/$NAME.pid --exec $DAEMON
         sleep 1
         start-stop-daemon --start --quiet --pidfile \
-                /etc/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
+                /opt/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
         echo "$NAME."
         ;;
   reload)
           echo -n "Reloading $DESC configuration: "
-          start-stop-daemon --stop --signal HUP --quiet --pidfile     /etc/nginx/logs/$NAME.pid \
+          start-stop-daemon --stop --signal HUP --quiet --pidfile     /opt/nginx/logs/$NAME.pid \
               --exec $DAEMON
           echo "$NAME."
           ;;
