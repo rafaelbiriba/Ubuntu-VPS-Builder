@@ -69,7 +69,7 @@ ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 
 echo "Install Essencials"
 echo "------------------"
-apt-get install build-essential git-core libcurl4-openssl-dev zlib1g-dev libssl-dev -y
+apt-get install build-essential git-core libreadline6 libreadline6-dev libcurl4-openssl-dev zlib1g-dev libssl-dev -y
 
 if [ "$RUBY_ENABLED" = true ]; then
   echo "Install Ruby $RUBY"
