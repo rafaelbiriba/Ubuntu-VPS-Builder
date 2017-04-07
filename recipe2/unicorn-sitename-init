@@ -27,7 +27,7 @@ ENV="production"
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 PATH="/home/$USER/.rbenv/shims:/home/$USER/.rbenv/bin:$PATH"
 CMD="cd $APP_ROOT && bundle exec unicorn -c config/unicorn.rb -E $ENV -D"
-PID="$APP_PATH/shared/pids/unicorn.pid"
+PID="{{APP_PATH}}/shared/pids/unicorn.pid"
 OLD_PID="$PID.oldbin"
 
 # make sure the app exists
